@@ -1,0 +1,91 @@
+.filter-range .noUi-target {
+    background-color: $color-primary-disabled;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+
+}
+
+.filter-range .noUi-horizontal {
+    height: 2px;
+}
+
+.filter-range .noUi-handle {
+    top: -10px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid $color-primary-hover;
+    border-radius: 50%;
+    background: $color-white;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background-color $trans-default;
+
+    &::after {
+        content: none;
+    }
+
+    &::before {
+        height: 16px;
+        width: 16px;
+        background-color: $color-white;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: background-color $trans-default;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+        background-color: $color-base-secondary;
+    }
+
+    &:active::before {
+        background-color: $color-primary-hover;
+    }
+
+
+}
+
+.filter-range [disabled] .noUi-handle,
+.filter-range [disabled].noUi-handle {
+    border-color: $color-silver;
+    cursor: not-allowed;
+}
+
+.filter-range [disabled] .noUi-handle:hover::before,
+.filter-range [disabled].noUi-handle:hover::before,
+.filter-range [disabled] .noUi-handle:active::before,
+.filter-range [disabled].noUi-handle:active::before {
+    background-color: $color-white;
+}
+
+.filter-range [disabled].noUi-target .noUi-connect {
+    background-color: $color-silver;
+    cursor: not-allowed;
+}
+
+.filter-range .noUi-handle-lower {
+    right: -24px;
+}
+
+.filter-range .noUi-handle-upper {
+    right: -8px;
+
+    @media (min-width: $tablet-width) {
+        right: -23px;
+    }
+
+    @media (min-width: $desktop-width) {
+        right: -12px;
+    }
+}
+
+.filter-range .noUi-connects {
+    height: 4px;
+}
+
+.filter-range .noUi-connect {
+    background: $color-primary-hover;
+}

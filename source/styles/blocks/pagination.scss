@@ -1,0 +1,109 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.pagination__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    color: $color-base-primary;
+    background-color: $color-white;
+    border-radius: 4px;
+    transition: background-color $trans-default, color $trans-default;
+
+    &:hover {
+        color: $color-white;
+        background-color: $color-primary-hover;
+    }
+
+    &:active {
+        color: $color-white;
+        background-color: $color-primary-active;
+    }
+
+    &:disabled {
+        color: $color-white;
+        background-color: $color-primary-disabled;
+    }
+}
+
+.pagination__button--prev,
+.pagination__button--next {
+    max-width: 150px;
+    word-break: break-all;
+
+    &::before {
+        @include icons-mask($color-base-primary, url('../../icons/stack.svg#arrow-sort'));
+        content: '';
+        display: block;
+        width: 10px;
+        height: 6px;
+        transition: background-color $trans-default;
+    }
+
+
+    &:hover::before {
+        background-color: $color-white;
+    }
+
+    &:active::before {
+        background-color: $color-white;
+    }
+
+    &:disabled::before {
+        background-color: $color-white;
+    }
+
+    @media (min-width: $tablet-width) {
+        min-width: 91px;
+        width: auto;
+
+        &::before {
+            content: none;
+        }
+    }
+
+    @media (min-width: $desktop-width) {
+        height: auto;
+    }
+}
+
+.pagination__button--prev {
+    &::before {
+        transform: rotate(90deg);
+    }
+}
+
+.pagination__button--next {
+
+    @media (min-width: $tablet-width) {
+        min-width: 104px;
+    }
+
+    &::before {
+        transform: rotate(-90deg);
+    }
+}
+
+.pagination__button .pagination__button-text {
+    display: none;
+
+    @media (min-width: $tablet-width) {
+        display: inline-block;
+    }
+}
+
+.pagination__button--active {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $color-night-rider;
+    background-color: rgba(255, 255, 255, 0);
+}

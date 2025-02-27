@@ -1,0 +1,119 @@
+.main-nav {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 16px;
+    align-items: center;
+
+    @media (min-width: $tablet-width) {
+        grid-template-columns: 82px 1fr max-content;
+    }
+
+    @media (min-width: $desktop-width) {
+        grid-template-columns: 320px 1fr max-content;
+    }
+}
+
+.main-nav__logo {
+    position: relative;
+    z-index: 110;
+    height: 100%;
+    transition: opacity $trans-default;
+
+    @media (min-width: $desktop-width) {
+        display: flex;
+        align-items: center
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.main-nav__logo-link {
+    padding-top: 5px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    @media (min-width: $desktop-width) {
+        flex-shrink: 0;
+        margin-right: 20px;
+    }
+}
+
+.main-nav__toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 60px;
+    height: 100%;
+    min-height: 60px;
+    transition: background-color $trans-default;
+
+    @media (min-width: $tablet-width) {
+        display: none;
+    }
+
+    &:active {
+        background-color: $color-base-secondary;
+    }
+}
+
+.main-nav__line {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 2px;
+    background-color: $color-night-rider;
+    transition: all 0.3s;
+
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        display: block;
+        width: 16px;
+        height: 2px;
+        background-color: $color-night-rider;
+    }
+
+    &::before {
+        bottom: 5px;
+        transition:
+            bottom 0.2s 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+            transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    &::after {
+        top: 5px;
+        transition:
+            top 0.2s 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+            transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+}
+
+.main-nav__toggle--animate .main-nav__line {
+    background: rgba(255, 255, 255, 0);
+
+    &::before {
+        bottom: 0;
+        transform: rotate(45deg);
+        background-color: $color-night-rider;
+        transition:
+            bottom 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+            transform 0.2s 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    &::after {
+        top: 0;
+        transform: rotate(-45deg);
+        background-color: $color-night-rider;
+        transition:
+            top 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+            transform 0.2s 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+}

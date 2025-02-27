@@ -1,0 +1,108 @@
+.main-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 229px;
+    z-index: 90;
+    padding-top: 60px;
+    background-color: $color-white;
+    opacity: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+    @media (min-width: $tablet-width) {
+        display: flex;
+        flex-wrap: wrap;
+        position: static;
+        justify-self: center;
+        align-items: center;
+        min-height: max-content;
+        padding-top: 0;
+    }
+
+    @media (min-width: $desktop-width) {
+        gap: 20px
+    }
+}
+
+.main-menu--open {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: transform 0.5s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.main-menu__item {
+    border-top: 1px solid $color-base-secondary;
+
+    &:last-child {
+        border-bottom: 1px solid $color-base-secondary;
+
+        @media (min-width: $tablet-width) {
+            border: none;
+        }
+    }
+
+    @media (min-width: $tablet-width) {
+        border: none;
+    }
+}
+
+.main-menu__link {
+    position: relative;
+    z-index: 110;
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: color $trans-default, background-color $trans-default;
+
+    @media (min-width: $tablet-width) {
+        padding: 32px 20px;
+        transform: translateX(3px);
+    }
+
+    @media (min-width: $desktop-width) {
+        transform: none;
+
+        &:hover,
+        &:focus-visible {
+            color: $color-base-primary;
+        }
+
+        &:active {
+            color: $color-base-primary;
+            background-color: $color-base-secondary;
+        }
+    }
+
+    &:active {
+        background-color: $color-base-secondary;
+    }
+
+}
+
+.main-menu__link--current {
+    @media (min-width: $tablet-width) {
+        position: relative;
+        color: $color-base-primary;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            height: 2px;
+            background-color: $color-base-primary;
+        }
+    }
+}

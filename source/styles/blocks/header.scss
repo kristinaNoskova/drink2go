@@ -1,0 +1,11 @@
+.header {
+  position: relative;
+}
+
+.header .container {
+  padding-right: 0;
+
+  @media (min-width: $tablet-width) {
+    padding-right: 20px;
+  }
+}

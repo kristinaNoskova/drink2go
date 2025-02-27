@@ -1,0 +1,234 @@
+.slider {
+    position: relative;
+    overflow: hidden;
+    min-height: 656px;
+
+    @media (min-width: $tablet-width) {
+        min-height: 640px;
+        overflow: visible;
+    }
+
+    @media (min-width: $desktop-width) {
+        min-height: 714px;
+        overflow: hidden;
+    }
+
+}
+
+.slider__list {
+    display: flex;
+}
+
+.slider__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    padding: 20px 0 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    @media (min-width: $tablet-width) {
+        padding-bottom: 288px;
+    }
+
+    @media (min-width: $desktop-width) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 105px;
+        column-gap: 30px;
+    }
+}
+
+.slider__item--active {
+    opacity: 1;
+}
+
+.slider__item-wrap--animate {
+    transform: translateX(50px);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.slider__item-wrap--animate:nth-child(1) {
+    transition-delay: 0.4s;
+}
+
+.slider__item-wrap--animate:nth-child(2) {
+    transition-delay: 0.5s;
+}
+
+.slider__item-wrap--animate:nth-child(n + 3) {
+    transition-delay: 0.6s;
+}
+
+.slider__item--active .slider__item-wrap--animate {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.slider__item--img img {
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.5s ease 0.2s, opacity 0.5s ease 0.2s;
+}
+
+.slider__item--active .slider__item--img img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slider__wrapper {
+    @media (min-width: $tablet-width) {
+        padding-top: 40px;
+    }
+
+    @media (min-width: $desktop-width) {
+        padding: 30px 0 60px;
+    }
+}
+
+.slider__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    width: 20px;
+    background-color: transparent;
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 20;
+        display: block;
+        width: 11px;
+        height: 20px;
+        background: url('../../icons/stack.svg#arrow') no-repeat center;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 0.5s ease;
+    }
+
+    @media (min-width: $tablet-width) {
+        width: 80px;
+    }
+
+    @media (min-width: $desktop-width) {
+
+        &:hover::after,
+        &:focus-visible::after {
+            transform: scaleX(1);
+            transition: transform 0.5s ease;
+        }
+    }
+
+    &:active::after {
+        background: linear-gradient(90deg, rgba(120, 89, 207, 0.25) 0%, rgba(120, 89, 207, 0.00) 100%);
+    }
+
+    &:disabled {
+        opacity: 0.25;
+    }
+}
+
+.slider__button--prev {
+    left: 0;
+}
+
+.slider__button--next {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.slider__pagination {
+    display: none;
+
+    @media (min-width: $desktop-width) {
+        position: absolute;
+        left: 50%;
+        bottom: 60px;
+        transform: translateX(-50%);
+        display: flex;
+        column-gap: 8px;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 0;
+    }
+}
+
+.slider__pagination-button {
+    @media (min-width: $desktop-width) {
+        display: grid;
+        align-items: center;
+        padding: 0;
+        width: 62px;
+        height: 24px;
+        transition: transform $trans-default;
+
+        &::before {
+            content: '';
+            grid-column: 1;
+            grid-row: 1;
+            height: 4px;
+            width: 100%;
+            background-color: $color-white;
+        }
+
+        &::after {
+            content: '';
+            grid-column: 1;
+            grid-row: 1;
+            height: 4px;
+            width: 100%;
+            background-color: $color-white;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform $trans-default;
+        }
+
+        &:hover::after,
+        &:focus-visible::after {
+            transform: scaleX(1);
+            background-color: $color-primary-opacity;
+            transition: transform $trans-default;
+        }
+
+        &:active::after {
+            transform: scaleX(1);
+            background-color: $color-base-primary;
+        }
+    }
+}
+
+.slider__pagination-button--active {
+    @media (min-width: $desktop-width) {
+        &::before {
+            background-color: $color-base-primary;
+        }
+
+        &::after {
+            content: none;
+        }
+    }
+}

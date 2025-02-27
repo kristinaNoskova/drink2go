@@ -1,0 +1,29 @@
+.features {
+    padding: 50px 0 60px;
+
+    @media (min-width: $tablet-width) {
+        padding: 248px 0 100px;
+    }
+
+    @media (min-width: $desktop-width) {
+        padding: 100px 0 120px;
+    }
+}
+
+.features__title span {
+    display: inline-block;
+    margin-bottom: 4;
+}
+
+.features__title {
+    margin-bottom: 32px;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 56px;
+    }
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 76px;
+    }
+
+}

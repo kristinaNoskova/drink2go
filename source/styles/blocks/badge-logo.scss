@@ -1,0 +1,10 @@
+.badge-logo {
+    display: none;
+
+    @media (min-width: $desktop-width) {
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+        color: $color-night-rider;
+    }
+}

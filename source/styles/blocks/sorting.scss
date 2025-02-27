@@ -1,0 +1,40 @@
+.sorting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3px;
+
+    @media (min-width: $tablet-width) {
+        justify-content: flex-end;
+        padding-left: 0;
+    }
+}
+
+.sorting__name {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.sorting__control {
+    @include bg-icon(url('../../icons/stack.svg#arrow-sort'), 10px 6px, right 10px center);
+    width: 165px;
+    padding: 4px 27px 4px 10px;
+    font-family: $primary-font;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $color-base-primary;
+    appearance: none;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color $trans-default;
+
+    &:hover,
+    &:focus-visible {
+        background-color: $color-base-secondary;
+    }
+}

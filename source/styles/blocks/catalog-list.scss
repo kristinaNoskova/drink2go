@@ -1,0 +1,111 @@
+.catalog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @media (min-width: $tablet-width) {
+        justify-content: center;
+        flex-direction: row;
+        gap: 30px;
+        margin-bottom: 70px;
+    }
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 60px;
+    }
+}
+
+.catalog-list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    padding: 40px 20px 20px;
+    border-radius: 4px;
+    background-color: $color-white;
+    transition: box-shadow $trans-default;
+
+    @media (min-width: $tablet-width) {
+        max-width: none;
+        width: 349px;
+        padding: 50px 30px 30px;
+    }
+
+    @media (min-width: $desktop-width) {
+        padding: 50px 30px 30px 29px;
+        max-width: none;
+        width: 317px;
+    }
+
+    &:hover,
+    &:focus-visible {
+        outline: transparent;
+        box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.catalog-list__img-wrap img {
+    display: block;
+}
+
+.catalog-list__img-wrap {
+    order: -1;
+    margin-bottom: 24px;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 30px;
+    }
+}
+
+.catalog-list__title {
+    margin-bottom: 4px;
+    text-align: right;
+    align-self: self-start;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 10px;
+
+    }
+}
+
+.catalog-list__descr {
+    margin-bottom: 16px;
+
+    @media (min-width: $tablet-width) {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.catalog-list__wrapp {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.catalog-list__price {
+    margin-left: -2px;
+    max-width: 50%;
+}
+
+.catalog-list__button {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 150px;
+
+
+    &::before {
+        @include bg-icon(url('../../icons/add-cart.svg'));
+        content: '';
+        display: block;
+        margin-right: 6px;
+        width: 20px;
+        height: 16px;
+    }
+}

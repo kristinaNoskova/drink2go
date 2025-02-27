@@ -1,0 +1,142 @@
+.hero--flat-white {
+    background-color: $color-bridal-heath;
+}
+
+.hero--lavender {
+    background-color: $color-lavender;
+}
+
+.hero--espresso {
+    background-color: $color-solitude;
+}
+
+.hero__slider-title {
+    margin-bottom: 10px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0.72px;
+    text-align: center;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 16px;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 80px;
+        letter-spacing: 1.12px;
+    }
+
+    @media (min-width: $desktop-width) {
+        text-align: start;
+    }
+}
+
+.hero__slider-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $desktop-width) {
+        align-items: flex-start;
+    }
+}
+
+.hero__slider-wrap-img {
+    order: -1;
+    margin-bottom: 10px;
+    max-width: 280px;
+    justify-self: center;
+
+    @media (min-width: $tablet-width) {
+        order: 0;
+        position: absolute;
+        bottom: -33%;
+        max-width: none;
+    }
+
+    @media (min-width: $desktop-width) {
+        position: static;
+        justify-self: end;
+        margin-bottom: 0;
+    }
+}
+
+.hero__slider-wrap-img img {
+    display: block;
+    width: 100%;
+}
+
+.hero__slider-new {
+    display: inline-block;
+    margin-bottom: 4px;
+
+    @media (min-width: $desktop-width) {
+        text-align: start;
+    }
+}
+
+.hero__slider-descr {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    @media (min-width: $tablet-width) {
+        padding: 0 81px;
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 40px;
+        padding: 0;
+        text-align: start;
+    }
+}
+
+.hero__slider-order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 73%;
+    column-gap: 20px;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 20px;
+        width: 50%;
+    }
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 0;
+        column-gap: 21px;
+        justify-content: flex-start;
+    }
+}
+
+.hero__slider-price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+
+    @media (min-width: $tablet-width) {
+        width: auto;
+    }
+}
+
+.hero__slider-no-discount {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    text-decoration-line: line-through;
+    color: $color-base-primary;
+}
+
+.hero__slider-link {
+    max-width: 150px;
+
+    @media (min-width: $tablet-width) {
+        width: auto;
+    }
+}

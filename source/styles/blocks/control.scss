@@ -1,0 +1,111 @@
+.control {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+}
+
+.control:hover .control__input:not(:disabled) {
+    background-color: $color-primary-opacity;
+    border-color: $color-base-primary;
+}
+
+.control:has(.control__input:disabled),
+.control:has(.control__input:checked:disabled) {
+    color: $color-silver;
+}
+
+.control__label {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.control__input {
+    position: relative;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid $color-silver;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color $trans-default, background-color $trans-default;
+}
+
+.control__input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $color-base-primary;
+}
+
+.control__input[type="radio"]:checked {
+    border-color: $color-base-primary;
+}
+
+.control__input[type="checkbox"] {
+    width: 42px;
+    height: 24px;
+    border: none;
+    border-radius: 31px;
+    background-color: $color-silver;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.control__input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $color-white;
+    transform: translateX(2px) translateY(-50%);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.control__input[type="checkbox"]:checked {
+    background-color: $color-base-primary;
+}
+
+.control__input[type="checkbox"]:checked::before {
+    transform: translateX(20px) translateY(-50%);
+}
+
+.control__input:focus-visible {
+    background-color: $color-primary-opacity;
+    outline: 2px solid $color-base-primary;
+    outline-offset: -1px;
+}
+
+.control__input:checked:disabled::before {
+    background-color: $color-primary-disabled;
+}
+
+.control__input:checked:disabled,
+.control__input:disabled {
+    border-color: $color-primary-disabled;
+}
+
+.control__input[type="checkbox"]:disabled {
+    background-color: $color-primary-disabled;
+}
+
+.control__input[type="checkbox"]:disabled::before {
+    background-color: $color-white-smoke;
+}
+
+.control__input[type="checkbox"]:checked:disabled::before {
+    background-color: $color-silver;
+}

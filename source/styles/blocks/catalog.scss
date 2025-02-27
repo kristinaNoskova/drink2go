@@ -1,0 +1,66 @@
+.catalog {
+    padding: 50px 0 44px;
+    background-color: $color-white-smoke;
+
+    @media (min-width: $tablet-width) {
+        padding: 80px 0 90px;
+    }
+
+    @media (min-width: $desktop-width) {
+        padding: 100px 0 120px;
+    }
+}
+
+.catalog__grid {
+    @media (min-width: $desktop-width) {
+        display: grid;
+        grid-template-columns: 318px 1fr;
+        grid-template-rows: auto 1fr auto;
+        column-gap: 30px;
+        align-items: start;
+        grid-template-areas:
+            "filter sorting"
+            "filter catalog"
+            ". pagination"
+    }
+}
+
+.catalog__list {
+    grid-area: catalog;
+    justify-self: start;
+}
+
+.catalog__pagination {
+    grid-area: pagination;
+}
+
+.catalog__filter {
+    margin-bottom: 40px;
+    grid-area: filter;
+}
+
+.catalog__title {
+    margin-bottom: 17px;
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 31px;
+    }
+}
+
+.catalog__title span {
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.catalog__sorting {
+    margin-bottom: 16px;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 25px;
+    }
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 26px;
+        grid-area: sorting;
+    }
+}

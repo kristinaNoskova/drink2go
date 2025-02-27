@@ -1,0 +1,184 @@
+.filter__wrap {
+    display: flex;
+    column-gap: 30px;
+    flex-wrap: wrap;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 40px;
+    }
+
+    @media (min-width: $desktop-width) {
+        padding-top: 4px;
+    }
+}
+
+.filter fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: 100%;
+
+    @media (min-width: $tablet-width) {
+        width: calc((100% - 60px) / 3);
+    }
+
+    @media (min-width: $desktop-width) {
+        width: 100%;
+    }
+
+}
+
+.filter__name {
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+
+.filter .filter__range,
+.filter .filter__milk,
+.filter .filter__country {
+    margin-bottom: 30px;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 30px;
+    }
+}
+
+.filter__range {
+    max-width: 280px;
+
+    @media (min-width: $tablet-width) {
+        max-width: none;
+    }
+}
+
+.filter__range .filter__name {
+    margin-bottom: 29px;
+
+    @media (min-width: $tablet-width) {}
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 30px;
+    }
+}
+
+.filter__range-slider {
+    margin-bottom: 36px;
+
+    @media (min-width: $tablet-width) {
+        margin-bottom: 32px;
+    }
+
+    @media (min-width: $desktop-width) {
+        margin-bottom: 34px;
+    }
+}
+
+.filter__range-inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter__range-input {
+    width: 118px;
+    height: 40px;
+    padding: 8px 10px;
+    font-family: $primary-font;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: $color-night-rider;
+    border-radius: 4px;
+    border: 2px solid $color-base-primary;
+    background-color: $color-white;
+    transition: border-color $trans-default;
+
+    @media (min-width: $tablet-width) {
+        width: 87px;
+    }
+
+    @media (min-width: $desktop-width) {
+        width: 134px;
+    }
+
+    &:focus-visible {
+        outline: none;
+        border-color: $color-primary-active;
+    }
+
+    &:disabled {
+        background-color: $color-white-smoke;
+        border-color: $color-primary-disabled;
+    }
+
+}
+
+.filter__range-input::-webkit-outer-spin-button,
+.filter__range-input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+.filter__range-input[type="number"] {
+    appearance: textfield;
+}
+
+.filter__list-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.filter .filter__country {
+    @media (min-width: $desktop-width) {
+        margin-bottom: 0;
+    }
+}
+
+.filter__buttons {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $tablet-width) {
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 auto;
+        column-gap: 20px;
+    }
+
+    @media (min-width: $desktop-width) {
+        max-width: none;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.filter__button {
+    max-width: none;
+    width: 100%;
+    word-break: break-all;
+
+    @media (min-width: $tablet-width) {
+        margin: 0;
+        width: max-content;
+        max-width: 200px;
+    }
+
+    @media (min-width: $desktop-width) {
+        width: 50%;
+    }
+}
+
+.filter__button--submit {
+    margin-bottom: 20px;
+
+    @media (min-width: $tablet-width) {
+        margin: 0;
+    }
+}
